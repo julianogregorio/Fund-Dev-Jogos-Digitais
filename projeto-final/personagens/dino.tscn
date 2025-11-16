@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://b37c1lfiaoq5y"]
+
+[ext_resource type="Texture2D" uid="uid://ctwno8c616efw" path="res://assets/CHARACTER/DINO32/Dino32-RUN.png" id="1_u3q57"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqlwi"]
+atlas = ExtResource("1_u3q57")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yu21"]
+atlas = ExtResource("1_u3q57")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_462od"]
+atlas = ExtResource("1_u3q57")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0xga"]
+atlas = ExtResource("1_u3q57")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n3jhb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqlwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yu21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_462od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0xga")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a01q6"]
+radius = 16.0
+height = 32.0
+
+[node name="dino" type="CharacterBody2D"]
+metadata/_edit_group_ = true
+
+[node name="animacao" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n3jhb")
+animation = &"andando"
+frame_progress = 0.4824042
+
+[node name="colisao" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("CapsuleShape2D_a01q6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0

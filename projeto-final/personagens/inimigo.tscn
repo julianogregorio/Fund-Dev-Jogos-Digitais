@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://cx5i4hskiy8q1"]
+
+[ext_resource type="Texture2D" uid="uid://74t31yljhlug" path="res://assets/Sprite Pack 8/6 - Angie/Running (32 x 32).png" id="1_c2svc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b8xr"]
+atlas = ExtResource("1_c2svc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g45jm"]
+atlas = ExtResource("1_c2svc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enrbn"]
+atlas = ExtResource("1_c2svc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0fh3"]
+atlas = ExtResource("1_c2svc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o83ti"]
+atlas = ExtResource("1_c2svc")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cs1f"]
+atlas = ExtResource("1_c2svc")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ekwcj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b8xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g45jm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enrbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0fh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o83ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cs1f")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eewpo"]
+radius = 3.0
+height = 12.0
+
+[node name="inimigo" type="CharacterBody2D"]
+position = Vector2(1, -14)
+metadata/_edit_group_ = true
+
+[node name="animacao" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ekwcj")
+animation = &"andando"
+frame = 1
+frame_progress = 0.73218006
+
+[node name="colisao" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_eewpo")
